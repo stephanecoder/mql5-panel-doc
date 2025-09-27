@@ -1,12 +1,65 @@
-# MQL5 Panel Controls Documentation
+# MQL5 Controls Library - Complete Documentation
 
-Comprehensive documentation for the MQL5 Controls Library, covering creation of control panels and dialogs for MQL5 applications.
+**The most comprehensive documentation for the MQL5 Controls Library**, covering all controls, advanced patterns, and production-ready examples for creating professional trading interfaces.
+
+## 🌟 Overview
+
+The MQL5 Controls Library (`MQL5\Include\Controls`) provides a powerful framework for building sophisticated graphical user interfaces in MetaTrader 5. This documentation covers every control, pattern, and technique needed to create professional trading applications.
+
+## ✨ Features
+
+- **Complete Control Coverage** - Documentation for all 20+ controls in the library
+- **Production-Ready Examples** - Real-world code you can use immediately
+- **Advanced Patterns** - Sophisticated techniques for professional applications
+- **EA Integration Guides** - Complete lifecycle management and best practices
+- **Source-Code Accurate** - Constants and patterns from actual MQL5 library source
+- **Performance Optimized** - Efficient implementations for trading environments
 
 ## 🚀 Quick Start
 
-The MQL5 Controls Library is located in `MQL5\Include\Controls` and provides a complete set of UI controls to create interactive trading applications, Expert Advisors, and custom indicators.
+Create your first trading panel in minutes:
 
-## 📚 Documentation Structure
+```mql5
+#include <Controls\Dialog.mqh>
+#include <Controls\Button.mqh>
+
+class CMyTradingPanel : public CAppDialog
+{
+private:
+    CButton m_buy_button;
+    CButton m_sell_button;
+
+public:
+    virtual bool Create(const long chart_id, const string name, const int subwin,
+                       const int x1, const int y1, const int x2, const int y2);
+protected:
+    void OnBuyClick();
+    void OnSellClick();
+};
+
+// Event handling
+EVENT_MAP_BEGIN(CMyTradingPanel)
+    ON_EVENT(ON_CLICK, m_buy_button, OnBuyClick)
+    ON_EVENT(ON_CLICK, m_sell_button, OnSellClick)
+EVENT_MAP_END(CAppDialog)
+
+// Expert Advisor integration
+CMyTradingPanel Panel;
+
+int OnInit() {
+    return Panel.Create(0, "TradingPanel", 0, 20, 20, 200, 100) ? INIT_SUCCEEDED : INIT_FAILED;
+}
+
+void OnDeinit(const int reason) {
+    Panel.Destroy(reason);
+}
+
+void OnChartEvent(const int id, const long& lparam, const double& dparam, const string& sparam) {
+    Panel.ChartEvent(id, lparam, dparam, sparam);
+}
+```
+
+## 📚 Complete Documentation
 
 ### Foundation Classes
 - [**CWnd**](./docs/foundation/CWnd.md) - Base class for all controls
