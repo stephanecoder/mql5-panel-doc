@@ -111,6 +111,24 @@ void OnChartEvent(const int id, const long& lparam, const double& dparam, const 
 - [**Function Reference**](./docs/api/function-reference.md) - All methods and properties
 - [**Constants & Enums**](./docs/api/constants.md) - Control constants and enumerations
 
+## 🔀 Alternative GUI Frameworks
+
+### EasyAndFastGUI vs Standard Controls
+
+While this documentation focuses on the official MQL5 Controls Library, we also cover the popular **EasyAndFastGUI** framework:
+
+| Feature | Standard Controls | EasyAndFastGUI |
+|---------|------------------|----------------|
+| **Rendering** | Native MT5 objects | Canvas-based custom drawing |
+| **Controls** | 20+ basic controls | 35+ advanced controls |
+| **Theming** | Limited styling | Extensive customization |
+| **Performance** | Good for simple UIs | Optimized for complex interfaces |
+| **Learning Curve** | Easy | Moderate |
+| **Best For** | Quick prototypes, simple panels | Professional applications, data visualization |
+
+- [**EasyAndFastGUI Complete Guide**](./docs/alternatives/EasyAndFastGUI.md) - Modern canvas-based GUI framework with advanced controls and theming
+- [**Framework Comparison Guide**](./docs/alternatives/framework-comparison.md) - Detailed comparison to help you choose the right framework
+
 ## 🎯 What Makes This Documentation Special
 
 - **100% Control Coverage** - Every control in the MQL5 library documented with examples
